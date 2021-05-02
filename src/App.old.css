@@ -3,14 +3,8 @@
 }
 
 .App-logo {
+  animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -27,24 +21,6 @@
 .App-link {
   color: #61dafb;
 }
-
-.App-bar{
-  margin:0 auto;
-  height:30px;
-  width:575px;
-  border-radius:50x;
-  border:1px solid #dcdcdc;
-  font-size:16px;
-}
-.App-bar:hover{
-  box-shadow: 1px 1px 8px 1px #dcdcdc;
-}
-.App-bar:focus-within{
-  box-shadow: 1px 1px 8px 1px #dcdcdc;
-  outline:none;
-}
-
-
 
 @keyframes App-logo-spin {
   from {

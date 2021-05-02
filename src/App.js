@@ -1,50 +1,57 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
+
+import React from "react"
 import "./App.css"
+import getNumber from "./Logic"
 
-class LambdaDemo extends Component {
+class App extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { loading: false, msg: null }
+    super(props);
+    this.state = { name: '', number: 0 }
   }
-
-  handleClick = api => e => {
-    e.preventDefault()
-
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
+  myChangeHandler = (event) => {
+    this.setState({ name: event.target.value, number: getNumber(event.target.value) })
   }
-
-  render() {
-    const { loading, msg } = this.state
-
-    return (
-      <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
-        <br />
-        <span>{msg}</span>
-      </p>
-    )
-  }
-}
-
-class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <LambdaDemo />
+          <form className="App">
+            <p>Name: </p>
+            <input className="App-bar"
+              type='text'
+              onChange={this.myChangeHandler}
+            />
+            <h3>Number:</h3>
+            <h1>{this.state.number}</h1>
+          </form>
         </header>
       </div>
-    )
+    );
   }
 }
 
-export default App
+
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
+
+export default App;
