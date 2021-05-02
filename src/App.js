@@ -1,7 +1,7 @@
 
 import React from "react"
 import "./App.css"
-import getNumber from "./Logic"
+import getNumber from "./lambda/Logic"
 
 class App extends React.Component {
   constructor(props) {
