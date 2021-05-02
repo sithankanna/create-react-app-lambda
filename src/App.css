@@ -31,7 +31,8 @@
 .App-bar{
   margin:0 auto;
   height:30px;
-  width:575px;
+  /* width:575px; */
+  width: auto;
   border-radius:50x;
   border:1px solid #dcdcdc;
   font-size:16px;
